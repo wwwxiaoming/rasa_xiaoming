@@ -1,0 +1,17 @@
+version: "3.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - 你好
+    - Hi
+    - 早上好
+    - 中午好
+    - 嘿
+    - 您好
+
+- intent: goodbye
+  examples: |
+    - 再见
+    - 拜拜
+    - 下次再见

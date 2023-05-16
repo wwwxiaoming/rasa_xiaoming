@@ -1,0 +1,41 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+
+entities:
+  - city
+
+slots:
+  city:
+    type: text
+    initial_value: null
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      intent: inform_city
+      role: location
+    - type: from_entity
+      entity: location
+      role: location
+
+
+responses:
+  utter_greet:
+    - text: "您好！有什么我可以帮助你的吗？"
+  utter_goodbye:
+    - text: "再见，祝你有美好的一天！"
+
+actions:
+  - action_weather
+  - action_zipcode
+  - action_phone_number
+  - action_default_fallback
+  - actions.ActionWeather
+  - actions.ActionPhoneNumber
+  - actions.ActionZipcode
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
